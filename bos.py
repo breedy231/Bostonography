@@ -72,16 +72,23 @@ def close_db(error):
 def index():
     return render_template('index.html')
 
+
 @app.route('/brendan')
 def brendan():
     return render_template('brendan.html')
 
+
 @app.route('/alejandro')
 def alejandro():
     return render_template('alejandro.html')
+
 
 @app.route('/doug')
 def doug():
     return render_template('doug.html')
 
 
+if __name__ == '__main__':
+     app.debug = True
+     port = int(os.environ.get("PORT", 5000))
+     app.run(host='0.0.0.0', port=port)
