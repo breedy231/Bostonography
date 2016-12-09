@@ -29,7 +29,18 @@ L.tileLayer(
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 15
     }).addTo(map);
+L.geoJson('features.geojson', {
+  style: function(feature) {
+    return { color : #ff0000};
+  }, 
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup(feature.properties.name)
+    layer.bindPopup(feature.properties.address)
+    layer.bindPopup(feature.properties.grades)
+  }
+}).addTp(map);
 map.addLayer()
+
 </script>
 
 
