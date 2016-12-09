@@ -10,6 +10,8 @@
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
+  <script src="./jquery.min.js"></script>
+  <link rel="point" type="application/json" href="features.geojson">
 </style>
 </head>
 <body>
@@ -29,16 +31,15 @@ L.tileLayer(
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 15
     }).addTo(map);
-L.geoJson('features.geojson', {
-  style: function(feature) {
-    return { color : #ff0000};
-  }, 
-  onEachFeature: function(feature, layer) {
-    layer.bindPopup(feature.properties.name)
-    layer.bindPopup(feature.properties.address)
-    layer.bindPopup(feature.properties.grades)
-  }
-}).addTp(map);
+$.get("features.geojson", function(data) {
+  
+  alert("geojson file loaded");
+  
+  //When GeoJSON is loaded
+  var geojsonLayer = new L.GeoJSON(data);   //New GeoJSON layer
+  map.addLayer(geojsonLayer);     //Add layer to map  
+
+});
 map.addLayer()
 
 </script>
