@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Bostonography</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiYnJlZWR5MjMxIiwiYSI6ImNpdzlrd2JzaTAzc2kzMm1zaWF6bHFscmgifQ.iXjpeP1D5FQewmUcAoSbRw';
+var map = L.map('map').setView([42.343981, -71.070028], 12.65);
+
+// Add tiles from Mapbox Style API (https://www.mapbox.com/developers/api/styles/)
+// Tiles are 512x512 pixels and are offset by 1 zoom level
+L.tileLayer(
+    'https://api.mapbox.com/styles/v1/breedy231/ciwhz308m009m2qmtlr7s1ymn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYnJlZWR5MjMxIiwiYSI6ImNpdzlrd2JzaTAzc2kzMm1zaWF6bHFscmgifQ.iXjpeP1D5FQewmUcAoSbRw', {
+        
+        attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+map.addLayer()
+</script>
+
+
+</body>
+</html>
