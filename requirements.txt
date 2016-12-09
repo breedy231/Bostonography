@@ -1,1 +1,2 @@
 Flask==0.11
+Flask-Navigation==0.2.0
