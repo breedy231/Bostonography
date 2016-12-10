@@ -33,11 +33,11 @@ var mainLayer = L.tileLayer(
         
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 15
-    })
+    });
 
 var goodLayer = omnivore.csv('/static/only_a.csv');
 var mehLayer = omnivore.csv('/static/mixed.csv');
-var badLayer = omnivore.csv('/static/bad.csv';
+var badLayer = omnivore.csv('/static/bad.csv');
 
 
 var map = L.map('map', {
@@ -48,13 +48,13 @@ var map = L.map('map', {
 
 var baseMaps = {
   "Main": mainLayer
-}
+};
 
 var overlayMaps = {
   "Good": goodLayer,
   "Meh": mehLayer,
   "Bad": badLayer
-}
+};
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
