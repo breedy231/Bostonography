@@ -88,15 +88,15 @@ def doug():
     return render_template('doug.html')
 
 @app.route('/static/only_a.csv')
-def rest_true():
+def only_a():
     return app.send_static_file('only_a.csv')
 
 @app.route('/static/mixed.csv')
-def rest_true():
+def mixed():
     return app.send_static_file('mixed.csv')
 
 @app.route('/static/bad.csv')
-def rest_true():
+def bad():
     return app.send_static_file('bad.csv')
 
 
