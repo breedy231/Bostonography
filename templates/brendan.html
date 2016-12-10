@@ -33,7 +33,16 @@ L.tileLayer(
         maxZoom: 15
     }).addTo(map);
 
-omnivore.csv('/static/rest_true.csv').addTo(map);
+var customLayer = L.geoJson(null, {
+  // http://leafletjs.com/reference.html#geojson-style
+  style: function(feature) {
+    return {
+      color: '#ff0000'
+    };
+  }
+});
+
+omnivore.csv('/static/rest_true.csv', null, customLayer).addTo(map);
 
 </script>
 
