@@ -35,16 +35,15 @@ var mainLayer = L.tileLayer(
         maxZoom: 15
     });
 
-var style = L.geoJson(null, {
-  style: function(feature) {
-    return { color: '#ff0000'};
-  }
-  onEachFeature: function(feature) {
-    layer.bindPopup(feature.properties.name);
-  }
-});
 
-var aLayer = omnivore.csv('/static/only_a.csv', null, style);
+var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
+  this.eachLayer(function(marker) {
+    marker.setIcon(L.mapbox.marker.icon({
+      'marker-color': '#00ff00'
+    }));
+    marker.bindPopup(marker.toGeoJSON().properties.name + ', ' marker.toGeoJSON().properties.address);
+  });
+});
 var bLayer = omnivore.csv('/static/only_b.csv');
 var cLayer = omnivore.csv('/static/only_c.csv');
 var abLayer = omnivore.csv('/static/only_a_b.csv');
