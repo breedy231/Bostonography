@@ -87,9 +87,17 @@ def alejandro():
 def doug():
     return render_template('doug.html')
 
-@app.route('/static/rest_true.csv')
+@app.route('/static/only_a.csv')
 def rest_true():
-    return app.send_static_file('rest_true.csv')
+    return app.send_static_file('only_a.csv')
+
+@app.route('/static/mixed.csv')
+def rest_true():
+    return app.send_static_file('mixed.csv')
+
+@app.route('/static/bad.csv')
+def rest_true():
+    return app.send_static_file('bad.csv')
 
 
 if __name__ == '__main__':

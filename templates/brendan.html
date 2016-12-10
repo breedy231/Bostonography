@@ -45,19 +45,21 @@ var customLayer = L.geoJson(null, {
   }
 });
 
-omnivore.csv('/static/rest_true.csv', null, customLayer).addTo(map);
-
 
 L.easyButton('fa-smile-o', function(btn, map){
     alert('This good button is working');
+    omnivore.csv('/static/only_a.csv', null, customLayer).addTo(map);
 }).addTo(map);
 
 L.easyButton('fa-meh-o', function(btn, map){
     alert('This meh button is working');
+    omnivore.csv('/static/mixed.csv', null, customLayer).addTo(map);
 }).addTo(map);
 
 L.easyButton('fa-frown-o', function(btn, map){
     alert('This sad button is working');
+    omnivore.csv('/static/bad.csv', null, customLayer).addTo(map);
+
 }).addTo(map);
 
 </script>
