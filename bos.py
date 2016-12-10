@@ -87,7 +87,7 @@ def alejandro():
 def doug():
     return render_template('doug.html')
 
-@app.route('/rest_true.csv')
+@app.route('/static/rest_true.csv')
 def rest_true():
     return app.send_static_file('rest_true.csv')
 
