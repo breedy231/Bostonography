@@ -35,15 +35,18 @@ var mainLayer = L.tileLayer(
         maxZoom: 15
     });
 
-var goodLayer = omnivore.csv('/static/only_a.csv');
-var mehLayer = omnivore.csv('/static/mixed.csv');
-var badLayer = omnivore.csv('/static/bad.csv');
+var aLayer = omnivore.csv('/static/only_a.csv');
+var bLayer = omnivore.csv('/static/only_b.csv');
+var cLayer = omnivore.csv('/static/only_c.csv');
+var abLayer = omnivore.csv('/static/only_a_b.csv');
+var acLayer = omnivore.csv('/static/only_a_c.csv');
+var abcLayer = omnivore.csv('/static/only_a_b_c.csv');
 
 
 var map = L.map('map', {
   center: [42.343981, -71.070028],
   zoom: 12.65,
-  layers: [mainLayer, goodLayer]
+  layers: [mainLayer]
 });
 
 var baseMaps = {
@@ -51,29 +54,17 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-  "Good": goodLayer,
-  "Meh": mehLayer,
-  "Bad": badLayer
+  "A": aLayer,
+  "B": bLayer,
+  "C": cLayer,
+  "A,B": abLayer,
+  "A,C": acLayer,
+  "A,B,C": abcLayer
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
-L.easyButton('fa-smile-o', function(btn, map){
-    alert('This good button is working');
-    
-}).addTo(map);
-
-L.easyButton('fa-meh-o', function(btn, map){
-    alert('This meh button is working');
-    
-}).addTo(map);
-
-L.easyButton('fa-frown-o', function(btn, map){
-    alert('This sad button is working');
-    
-
-}).addTo(map);
 
 
 </script>

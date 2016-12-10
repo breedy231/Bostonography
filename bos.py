@@ -91,13 +91,25 @@ def doug():
 def only_a():
     return app.send_static_file('only_a.csv')
 
-@app.route('/static/mixed.csv')
-def mixed():
-    return app.send_static_file('mixed.csv')
+@app.route('/static/only_b.csv')
+def only_b():
+    return app.send_static_file('only_b.csv')
 
-@app.route('/static/bad.csv')
-def bad():
-    return app.send_static_file('bad.csv')
+@app.route('/static/only_c.csv')
+def only_c():
+    return app.send_static_file('only_c.csv')
+
+@app.route('/static/only_a_c.csv')
+def only_a_c():
+    return app.send_static_file('only_a_c.csv')
+
+@app.route('/static/only_a_b.csv')
+def only_a_b():
+    return app.send_static_file('only_a_b.csv')
+
+@app.route('/static/only_a_b_c.csv')
+def only_a_b_c():
+    return app.send_static_file('only_a_b_c.csv')
 
 
 if __name__ == '__main__':
