@@ -37,15 +37,40 @@ var mainLayer = L.tileLayer(
 
 var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = marker.toGeoJSON().properties.Address;
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
     marker.bindPopup(popup);
   });
 });
-var bLayer = omnivore.csv('/static/only_b.csv');
-var cLayer = omnivore.csv('/static/only_c.csv');
-var abLayer = omnivore.csv('/static/only_a_b.csv');
-var acLayer = omnivore.csv('/static/only_a_c.csv');
-var abcLayer = omnivore.csv('/static/only_a_b_c.csv');
+var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
+    marker.bindPopup(popup);
+  });
+});
+var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
+    marker.bindPopup(popup);
+  });
+});
+var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
+    marker.bindPopup(popup);
+  });
+});
+var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
+    marker.bindPopup(popup);
+  });
+});
+var abcLayer = omnivore.csv('/static/only_a_b_c.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = marker.toGeoJSON().properties.Name + ", " + marker.toGeoJSON().properties.Address + ", " marker.toGeoJSON().properties.Grades;
+    marker.bindPopup(popup);
+  });
+});
 
 
 var map = L.map('map', {
