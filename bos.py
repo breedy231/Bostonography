@@ -87,25 +87,31 @@ def alejandro():
 def doug():
     return render_template('doug.html')
 
+
 @app.route('/static/only_a.csv')
 def only_a():
     return app.send_static_file('only_a.csv')
+
 
 @app.route('/static/only_b.csv')
 def only_b():
     return app.send_static_file('only_b.csv')
 
+
 @app.route('/static/only_c.csv')
 def only_c():
     return app.send_static_file('only_c.csv')
+
 
 @app.route('/static/only_a_c.csv')
 def only_a_c():
     return app.send_static_file('only_a_c.csv')
 
+
 @app.route('/static/only_a_b.csv')
 def only_a_b():
     return app.send_static_file('only_a_b.csv')
+
 
 @app.route('/static/only_a_b_c.csv')
 def only_a_b_c():
@@ -113,6 +119,6 @@ def only_a_b_c():
 
 
 if __name__ == '__main__':
-     app.debug = True
-     port = int(os.environ.get("PORT", 5000))
-     app.run(host='0.0.0.0', port=port)
+    app.debug = True
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
