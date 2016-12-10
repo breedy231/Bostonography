@@ -6,12 +6,12 @@
 <title>Bostonography</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>'></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+<link rel="points" type="application/json" href=".Bostonography/features.geojson">
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
-  <script src="./jquery.min.js"></script>
-  <link rel="point" type="application/json" href="features.geojson">
 </style>
 </head>
 <body>
@@ -19,7 +19,8 @@
 
 <div id='map'></div>
 
-<script>
+<script type="text/javascript">
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnJlZWR5MjMxIiwiYSI6ImNpdzlrd2JzaTAzc2kzMm1zaWF6bHFscmgifQ.iXjpeP1D5FQewmUcAoSbRw';
 var map = L.map('map').setView([42.343981, -71.070028], 12.65);
 
@@ -31,18 +32,12 @@ L.tileLayer(
         attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 15
     }).addTo(map);
-$.get("features.geojson", function(data) {
-  
-  alert("geojson file loaded");
-  
-  //When GeoJSON is loaded
-  var geojsonLayer = new L.GeoJSON(data);   //New GeoJSON layer
-  map.addLayer(geojsonLayer);     //Add layer to map  
 
-});
-map.addLayer()
+omnivore.csv('rest_true.csv').addTo(map);
 
 </script>
+
+
 
 
 </body>
