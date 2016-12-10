@@ -6,7 +6,10 @@
 <title>Bostonography</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>'>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.css">
+<script src="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>
+<script src="https://use.fontawesome.com/e3a4d2eb18.js"></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
 <link rel="points" type="application/json" href=".Bostonography/features.geojson">
 <style>
@@ -43,6 +46,11 @@ var customLayer = L.geoJson(null, {
 });
 
 omnivore.csv('/static/rest_true.csv', null, customLayer).addTo(map);
+
+
+L.easyButton('fa-smile-o', function(btn, map){
+    alert('This button is working');
+}).addTo(map);
 
 </script>
 
