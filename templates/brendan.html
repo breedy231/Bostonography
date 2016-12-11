@@ -61,7 +61,7 @@ var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -74,7 +74,7 @@ var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -87,7 +87,7 @@ var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -100,7 +100,7 @@ var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -113,7 +113,7 @@ var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -126,7 +126,7 @@ var abcLayer = omnivore.csv('/static/only_a_b_c.csv').on('ready', function(layer
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     if (marker.toGeoJSON().properties.Sentiment == 0) {
       marker.setIcon(cMarker)
-    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
