@@ -39,20 +39,29 @@ var mainLayer = L.tileLayer(
 
 var aMarker = L.AwesomeMarkers.icon({
   prefix: 'fa',
-  icon: 'thumbs-up',
+  icon: 'smile-o',
   markerColor: 'green'
 });
 
 var bMarker = L.AwesomeMarkers.icon({
   prefix: 'fa',
-  icon: 'thumbs-down',
+  icon: 'frown-o',
   markerColor: 'red'
 });
+
+var cMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'meh-o',
+  markerColor: 'orange'
+});
+
 
 var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
       marker.setIcon(bMarker)
     } else {
       marker.setIcon(aMarker)
@@ -63,45 +72,65 @@ var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
 var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    marker.setIcon(L.mapbox.marker.icon({
-      'marker-color': '#ffff00'
-    }));
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
     marker.bindPopup(popup);
   });
 });
 var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    marker.setIcon(L.mapbox.marker.icon({
-      'marker-color': '#ff0000'
-    }));
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
     marker.bindPopup(popup);
   });
 });
 var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    marker.setIcon(L.mapbox.marker.icon({
-      'marker-color': '#bbff00'
-    }));
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
     marker.bindPopup(popup);
   });
 });
 var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    marker.setIcon(L.mapbox.marker.icon({
-      'marker-color': '#ffaa00'
-    }));
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
     marker.bindPopup(popup);
   });
 });
 var abcLayer = omnivore.csv('/static/only_a_b_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
     var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
-    marker.setIcon(L.mapbox.marker.icon({
-      'marker-color': '#bb00ff'
-    }));
+    if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if marker.toGeoJSON().properties.Sentiment < 0.1 {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
     marker.bindPopup(popup);
   });
 });
