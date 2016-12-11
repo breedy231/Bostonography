@@ -118,11 +118,11 @@ def only_a_b_c():
 
 @app.route('/dist/leaflet.awesome-markers.css')
 def markers():
-    return app.send_static_file('/dist/leaflet.awesome-markers.css')
+    return app.send_static_file('leaflet.awesome-markers.css')
 
 @app.route('/dist/leaflet.awesome-markers.js')
 def markersscript():
-    return app.send_static_file('/dist/leaflet.awesome-markers.js')
+    return app.send_static_file('leaflet.awesome-markers.js')
 
 
 if __name__ == '__main__':
