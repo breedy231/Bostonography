@@ -22,7 +22,6 @@ app.config.update(dict(
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 nav.Bar('top', [
-    nav.Item('Home', 'index'),
     nav.Item('Alejandro', 'alejandro'),
     nav.Item('Brendan', 'brendan'),
     nav.Item('Doug', 'doug'),

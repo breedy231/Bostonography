@@ -1,11 +1,27 @@
 <!doctype html>
+<title>Bostonography</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.css">
+<script src="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>
+<script src="https://use.fontawesome.com/e3a4d2eb18.js"></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+<link rel="points" type="application/json" href=".Bostonography/features.geojson">
+<link rel="stylesheet" href="dist/leaflet.awesome-markers.css">
+<script src="dist/leaflet.awesome-markers.js"></script>
+<style>
+  h1 { font-family: 'Roboto', sans-serif; }
+  #page { font-family: 'Roboto', sans-serif; margin: 1em auto; width: 35em; border: 2px solid #ccc;
+                  padding: 0.5em; background: white;  }
+  #map { position:absolute; top:20%; bottom:0; width:100%; height:500px; }
+  #entry { position:absolute; top:82%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
+</style>
 
-<head>
-  {% block head %}
-  <title>{% block title %} {% endblock %} - Bostonography</title>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-  <div class=page>
+
+<div class=nav>
   <h1>Bostonography</h1>
   <ul>
     {% for item in nav.top %}
@@ -14,26 +30,169 @@
     </li>
     {% endfor %}
   </ul>
-  
+</div>  
+
+<div id='map'></div>
+
+<div id='entry'>
+  <p> This is some text</p>
 </div>
-{% endblock %} 
-</head>
- 
-
-<body>
-  <div id="content">{% block content %}{% endblock %}</di
-</body>
-
-
-
-
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+<script type="text/javascript">
 
-<!--
-<script type=text/javascript>
-  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+L.mapbox.accessToken = 'pk.eyJ1IjoiYnJlZWR5MjMxIiwiYSI6ImNpdzlrd2JzaTAzc2kzMm1zaWF6bHFscmgifQ.iXjpeP1D5FQewmUcAoSbRw';
+
+// Add tiles from Mapbox Style API (https://www.mapbox.com/developers/api/styles/)
+// Tiles are 512x512 pixels and are offset by 1 zoom level
+var mainLayer = L.tileLayer(
+    'https://api.mapbox.com/styles/v1/breedy231/ciwhz308m009m2qmtlr7s1ymn/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYnJlZWR5MjMxIiwiYSI6ImNpdzlrd2JzaTAzc2kzMm1zaWF6bHFscmgifQ.iXjpeP1D5FQewmUcAoSbRw', {
+        
+        attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 15
+    });
+
+var aMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'smile-o',
+  markerColor: 'green'
+});
+
+var bMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'frown-o',
+  markerColor: 'red'
+});
+
+var cMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'meh-o',
+  markerColor: 'orange'
+});
+
+var coffeeMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'coffee',
+  markerColor: 'purple'
+})
+
+
+var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+var abcLayer = omnivore.csv('/static/all3.csv').on('ready', function(layer) {
+  this.eachLayer(function (marker) {
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
+    if (marker.toGeoJSON().properties.Name.localeCompare('Dunkin Donuts') == 0) {
+      marker.setIcon(coffeeMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment == 0) {
+      marker.setIcon(cMarker)
+    } else if (marker.toGeoJSON().properties.Sentiment < 0.1) {
+      marker.setIcon(bMarker)
+    } else {
+      marker.setIcon(aMarker)
+    }
+    marker.bindPopup(popup);
+  });
+});
+
+
+var map = L.map('map', {
+  center: [42.343981, -71.070028],
+  zoom: 12.65,
+  layers: [mainLayer]
+});
+
+var baseMaps = {
+  "Main": mainLayer
+};
+
+var overlayMaps = {
+  "A": aLayer,
+  "B": bLayer,
+  "C": cLayer,
+  "A,B": abLayer,
+  "A,C": acLayer,
+  "A,B,C": abcLayer
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+
+
 </script>
--->
 
