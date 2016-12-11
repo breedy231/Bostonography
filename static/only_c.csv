@@ -1,8 +1,8 @@
-Name,Address,Grades,Latitude,Longitude 
-Boston Common Coffee Co.,"'10 West St.,Boston,MA,USA'",'C',42.2576521,-71.1163652
-South End Formaggio,"'268 Shawmut Ave.,Boston,MA,USA'",'C',42.3431161,-71.0686272
-Chinatown Cafe,"'262 Harrison Ave.,Boston,MA,USA'",'C',42.3474714,-71.0625824
-Green Bean Mobile Cafe,"'1 Citywide St.,Boston,MA,USA'",'C',42.3493824,-71.0777334
-Thomson Reuters,"'12 Thomson Pl.,Boston,MA,USA'",'C',42.3508455,-71.0480003
-89 Broad Street,"'89 Broad St.,Boston,MA,USA'",'C',42.3573324,-71.0532338
-Stadium Sports Bar & Grille,"'148 State St.,Boston,MA,USA'",'C',42.3593454,-71.05418
+Name,Address,Grades,Tips,Sentiment,Latitude,Longitude 
+Boston Common Coffee Co.,"'10 West St.,Boston,MA,USA'",'C',Nothing really special. Nothing to save really from coffee to the furniture.; Personal is very helpful and cherful. The coffee is very awesome. It's great.; NITRO COFFEE!!!!;  Free Wi-Fi good atmosphere  & delicious spinach & feta croissants and cinnamon sugar brioche',0.295714286,42.2576521,-71.1163652
+South End Formaggio,"'268 Shawmut Ave.,Boston,MA,USA'",'C',Italian on focaccia.; Awesome craft beer and chocolate selection (they carry evil twin and mast brothers chocolate); Beautiful location  beautiful store  beautiful cheeses.; Ridiculous sandwiches. The motherload of cheese. Also great wines!; A wonderful selection of cheese and wine and a staff that is extremely helpful!',0.321041667,42.3431161,-71.0686272
+Chinatown Cafe,"'262 Harrison Ave.,Boston,MA,USA'",'C','Chef Marco Suarez eats here on his nights off. He loves the Roast pig belly.; Cash only but the pharmacy nearby has an ATM; Don't order M23 that's the Shredded Duck with Rice Noodles. You'll see more noodles than Duck. -_-; Roast pork on rice is great and affordable. Less greasy than Quic Pic.; Cash only...',0.163333333,42.3474714,-71.0625824
+Green Bean Mobile Cafe,"'1 Citywide St.,Boston,MA,USA'",'C',"I tried out the Green Bean last Wednesday in the Seaport and had the turkey panini  watermelon feta salad  and an Arnold Palmer. All were so delicious  I wish I could swing by more often!; Their caramel coffee is killer.; Chocolate Mint Coffee and Waffle with Soy Nut butter.; Razzberry chocolate chip muffin is a must  but the Dirty Pig is also amazing if feeling indulgent...it is bacon and chocolate on a delectable waffle made fresh on the truck.  ""Big Guy"" iced coffee too; The coffee. The muffins. The people. ",0.08625,42.3493824,-71.0777334
+Thomson Reuters,"'12 Thomson Pl.,Boston,MA,USA'",'C','Work work work',0,42.3508455,-71.0480003
+89 Broad Street,"'89 Broad St.,Boston,MA,USA'",'C','No tips from Foursquare!',0,42.3573324,-71.0532338
+Stadium Sports Bar & Grille,"'148 State St.,Boston,MA,USA'",'C','Red Sangria....yum!; Food was really good and the atmosphere was very fun. Nice cars everywhere too; TVs abound so chances are that whatever sporting event you're trying to catch is on here; Nice views on the water.; Great for after work drinks',0.392666667,42.3593454,-71.05418

@@ -1,6 +1,6 @@
-Name,Address,Grades,Latitude,Longitude 
-King Of Wings,"'109 Blue Hill Ave.,Boston,MA,USA'",'B; C',42.3212039,-71.0775256
-Saint John's Seminary Bishop Peterson Hall,"'127 Lake St.,Boston,MA,USA'",'B',42.3439575,-71.162576
-Article 24,"'458 Western Ave.,Boston,MA,USA'",'B',42.3619505,-71.1422134
-Yawkey Center Coffee South,"'32 Fruit St.,Boston,MA,USA'",'B',42.3620194,-71.0694942
-Virgin Atlantic Airways Clubhouse,"'500 Logan Airport Trmnl E.,Boston,MA,USA'",'B',42.3685769,-71.0228005
+Name,Address,Grades,Tips,Sentiment,Latitude,Longitude 
+King Of Wings,"'109 Blue Hill Ave.,Boston,MA,USA'",'B; C','No tips from Foursquare!',0,42.3212039,-71.0775256
+Saint John's Seminary Bishop Peterson Hall,"'127 Lake St.,Boston,MA,USA'",'B','',0,42.3439575,-71.162576
+Article 24,"'458 Western Ave.,Boston,MA,USA'",'B',The spicy chicken ramen is delicious!; The dumplings are amazing! Got some nice toasts to. The steak was delicious to.; Great drinks and late night menu!; Newburyport Brewing made them an exclusive beer  Pinky's IPA  that you can only get on tap here. Very cool.',0.355833333,42.3619505,-71.1422134
+Yawkey Center Coffee South,"'32 Fruit St.,Boston,MA,USA'",'B','',0,42.3620194,-71.0694942
+Virgin Atlantic Airways Clubhouse,"'500 Logan Airport Trmnl E.,Boston,MA,USA'",'B',Far better ambiance than the BA lounge.; Pulled pork sliders  very good! Don't expect to be served quickly though...; New menu is great; Love the souop!; small but well formed clubouse... :)',0.436969697,42.3685769,-71.0228005
