@@ -124,6 +124,14 @@ def markers():
 def markersscript():
     return app.send_static_file('leaflet.awesome-markers.js')
 
+@app.route('/dist/images/markers-soft.png')
+def markerssoft():
+    return app.send_static_file('markers-soft.png')
+
+@app.route('/dist/images/markers-shadow.png')
+def markerssoft():
+    return app.send_static_file('markers-shadow.png')
+
 
 if __name__ == '__main__':
     app.debug = True
