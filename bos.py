@@ -129,7 +129,7 @@ def markerssoft():
     return app.send_static_file('markers-soft.png')
 
 @app.route('/dist/images/markers-shadow.png')
-def markerssoft():
+def markersshadow():
     return app.send_static_file('markers-shadow.png')
 
 
