@@ -116,6 +116,14 @@ def only_a_b():
 def only_a_b_c():
     return app.send_static_file('only_a_b_c.csv')
 
+@app.route('/dist/leaflet.awesome-markers.css')
+def markers():
+    return app.send_static_file('/dist/leaflet.awesome-markers.css')
+
+@app.route('/dist/leaflet.awesome-markers.js')
+def markersscript():
+    return app.send_static_file('/dist/leaflet.awesome-markers.js')
+
 
 if __name__ == '__main__':
     app.debug = True
