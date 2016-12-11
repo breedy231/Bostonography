@@ -112,21 +112,25 @@ def only_a_b():
     return app.send_static_file('only_a_b.csv')
 
 
-@app.route('/static/only_a_b_c.csv')
+@app.route('/static/all3.csv')
 def only_a_b_c():
-    return app.send_static_file('only_a_b_c.csv')
+    return app.send_static_file('all3.csv')
+
 
 @app.route('/dist/leaflet.awesome-markers.css')
 def markers():
     return app.send_static_file('leaflet.awesome-markers.css')
 
+
 @app.route('/dist/leaflet.awesome-markers.js')
 def markersscript():
     return app.send_static_file('leaflet.awesome-markers.js')
 
+
 @app.route('/dist/images/markers-soft.png')
 def markerssoft():
     return app.send_static_file('markers-soft.png')
+
 
 @app.route('/dist/images/markers-shadow.png')
 def markersshadow():
