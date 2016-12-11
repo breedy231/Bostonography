@@ -45,14 +45,14 @@ var aMarker = L.AwesomeMarkers.icon({
 
 var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(aMarker);
     marker.bindPopup(popup);
   });
 });
 var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(L.mapbox.marker.icon({
       'marker-color': '#ffff00'
     }));
@@ -61,7 +61,7 @@ var bLayer = omnivore.csv('/static/only_b.csv').on('ready', function(layer) {
 });
 var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(L.mapbox.marker.icon({
       'marker-color': '#ff0000'
     }));
@@ -70,7 +70,7 @@ var cLayer = omnivore.csv('/static/only_c.csv').on('ready', function(layer) {
 });
 var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(L.mapbox.marker.icon({
       'marker-color': '#bbff00'
     }));
@@ -79,7 +79,7 @@ var abLayer = omnivore.csv('/static/only_a_b.csv').on('ready', function(layer) {
 });
 var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(L.mapbox.marker.icon({
       'marker-color': '#ffaa00'
     }));
@@ -88,7 +88,7 @@ var acLayer = omnivore.csv('/static/only_a_c.csv').on('ready', function(layer) {
 });
 var abcLayer = omnivore.csv('/static/only_a_b_c.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "<dt> ADDRESS: </dt> " + "<dd>" + marker.toGeoJSON().properties.Address + "</dd>" + "<dt> GRADES: </dt> " + "<dd>" + marker.toGeoJSON().properties.Grades +"</dd> "+ "<dt> TIPS: </dt> " + "<dd>" marker.toGeoJSON().properties.Tips + "</dd>" + "<dt> SENTIMENT </dt>: " + "<dd>" +  marker.toGeoJSON().properties.Sentiment + "</dd></dl>";
     marker.setIcon(L.mapbox.marker.icon({
       'marker-color': '#bb00ff'
     }));
