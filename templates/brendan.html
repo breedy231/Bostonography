@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+{% extends "layout.html" %}
+{%block head %}
 <meta charset=utf-8 />
-<title>Bostonography</title>
+{%block title%} Bostonography {%endblock%}
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>'>
@@ -17,10 +18,8 @@
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:50%; }
 </style>
-</head>
-{% extends "layout.html" %}
-<body>
-
+{%endblock%}
+{%block content%}
 
 <div id='map'></div>
 
@@ -183,5 +182,5 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
 
-</body>
+{%endblock%}
 </html>
