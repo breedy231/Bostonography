@@ -45,7 +45,7 @@ var aMarker = L.AwesomeMarkers.icon({
 
 var aLayer = omnivore.csv('/static/only_a.csv').on('ready', function(layer) {
   this.eachLayer(function (marker) {
-    var popup = "NAME: " + marker.toGeoJSON().properties.Name + "\n " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
+    var popup = "<dl>" + "<dt> NAME: </dt>" + "<dd>" + marker.toGeoJSON().properties.Name + "</dd> " + "ADDRESS: " + marker.toGeoJSON().properties.Address + "\n" + "GRADES: " + marker.toGeoJSON().properties.Grades +"\n "+ "TIPS: " + marker.toGeoJSON().properties.Tips + "\n" + "SENTIMENT: " + marker.toGeoJSON().properties.Sentiment;
     marker.setIcon(aMarker);
     marker.bindPopup(popup);
   });
