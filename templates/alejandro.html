@@ -22,7 +22,7 @@
   h1 { font-family: 'Roboto', sans-serif; }
   body { margin:0; padding:0; }
   #map { position:absolute; top:5%; bottom:0; width:100%; height:500px; }
-  #text { position: absolute; top:80%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
+  #entry { position: absolute; top:95%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
   #gallery {position:absolute; top:70%;}
 </style>
 </head>
@@ -95,6 +95,41 @@
                 </a>
             </div>
         </div>
+
+<div id='entry'>
+
+<h2> Main map: </h2>
+<p>
+I created this map by cleaning a spreadsheet with every entry of restaurants and every health inspection grade that a restaurant has received since the beginning of 2015. The original spreadsheet was shared with me from Doug and he used the data from a Boston Globe report. I then created a spreadsheet which contained only one entry of each restaurant, then broke it down into two spreadsheets because Google maps only renders 2,000 entries per map layer and there were a little over 3,000 entries. I then created spreadsheets for “Grade A” restaurants. This required two spreadsheets, as the dataset of all the restaurants, to upload as two layers in Google Maps. I then made a spreadsheet for “Grade B” and “Grade C” restaurants. I deleted duplicates of restaurants by filtering the spreadsheet for each grade by most recent evaluation then deleting duplicates for that sheet. There are duplicate entries when looking at the different sheets for each grade because many restaurants received multiple health inspection grades. The merged data set titled “All restaurants” contains no duplicates and the most recent grade a restaurant has received. I color coordinated each layer for user access and analysis. I used QGIS to geocode the data to upload into the Google map and I also used QGIS to convert a Boston Neighborhoods shapefile into a KMS file to also upload to the Google map for further analysis of the restaurants and location. 
+</p>
+
+<h2>Analysis of main map: </h2>
+<p>
+I noted that there are a lot of restaurants that received a health inspection grade of “C” or “B” before acquiring an “A” grade. This can demonstrate several things: Most restaurants didn’t take the initial health inspections seriously or perhaps the regulations were too exigent or perhaps health inspections vary by restaurant, date and time ultimately leading to inconsistent and unsatisfactory initial results. This is not unusual, though: Approximately 37 percent of the city’s restaurants received a failing grade of “C,” yet nearly all restaurants eventually received an “A” grade, according to a Boston Globe report from August, 15. When I started mapping the data I was trying to see if there is any correlation between health inspection grades and location of restaurants and I have found that there are no strong correlations, but there are some anomalies. <br>
+
+For example, when analyzing the restaurants by neighborhood with different filters, it is evident that the closer a restaurant was to Government Center, the more likely it was to receive an initial grade of “B” rather than “C.” Another anomaly is evident on Centre Street in Jamaica Plain where nearly every restaurant received an initial grade of “C” and eventually a “B” and “A” for some. I wonder why this is the case and if there is something specific about Centre Street that would explain why this trend is evident whereas somewhere like Columbus Avenue by the border of Back Bay (near the Prudential Center) is overwhelmed with the complete opposite – grade “A” restaurants from first attempt. <br>
+
+The “All restaurants” and “All restaurants (other half)” filter enables the user to find a restaurant and see if the restaurant has failed previous health inspections. This is where I noted the lack of a correlation or trend with location. It was common to find a couple of restaurants in the same street who had received an “A” grade then have that be juxtaposed by a couple of restaurants that had gone through all grades of inspection or jump from a “C” to an “A” or a “B” to an “A.” <br>
+
+It became apparent that a restaurant’s final health inspection grade is not what stands out, but rather the initial grade and the different grades a restaurant progressed through to get to the “A.” It is comforting that the whole map appears purple when with the “Grade A” filters applied. It is unsettling, however, that some of the places I frequent went through multiple health inspection results – what incentive is there for a restaurant to be clean if they can fail then clean up in a week and get reevaluated? <br>
+</p>
+<h2>Heat map: </h2>
+<p>
+I created the heat map by exporting the main Google map I had plotted as a KML file then uploading the KML file into a Google Fusion Table. I then plotted the map by geocoding the KML. I tried the two steps I just described a couple of times, each time altering the spreadsheets that made up the main map to get a result I was content with. Nonetheless, there were some restaurants which did not get plotted because somewhere in the geocoding process their geometry was relocated. If I zoom out and switch to the feature map, instead of the heat map, the points stand out and if clicked they have the correct information, but just aren’t plotted correctly. The filters option enables the user to see different concentrations of restaurants by individual health inspection grade or by pairs of grades. 
+</p>
+
+<h2>Analysis of heat map: </h2>
+
+<p>
+I found that there is a strong concentration of restaurants that received all three health inspection grades in Back Bay, by Copley Square, the North End, down the street from City Hall, and in Allston. When looking at restaurant concentrations with the “A; B” filter there is a strong concentration from Fenway Park up to the North End. I would imagine these restaurants would be prone to passing health inspections due to their location and the amount of attractions surrounding them. For example, catching a Red Sox game, browsing Newbury Street or strolling down the Commons. There are also pockets of “A” restaurants by TD Garden and the Blue Hills Bank Pavilion, which presume is for the same reason as the aforementioned reasons. <br>
+
+This leads me to believe that there may be weak correlations, but nothing to state that the restaurants in a certain neighborhood are destined to receive a certain grade. The weak correlation that I can note is that the greater the distance between a restaurant and Back Bay/Government Center, then the more prone it is to go through all the different grades. This is particularly evident with the juxtaposition of heat in the filter of “B” grades and “C” grades. I must note that there are some limitations: Just as the main map, there are some duplicates of restaurants when using the individual grade filters. Also, using a Google Fusion Table doesn’t enable me to utilize all the data points. <br>
+</p>
+<h2>Difficulties: </h2>
+<p>
+I had trouble publishing my heatmap because Google doesn’t publish heat maps with geocoded addresses, so I had to find a way around that. I did so by screenshotting different maps based on different filter settings and hyperlinked to the map so that the reader can use it. I am also not savvy with any programming so it was difficult keeping up with what Brendan and Doug were doing with their programming, nonetheless we communicated when we met up as a group and we let each other know what we were up to. Cleaning the data and making sure it was all the same so that it can be uploaded as CSV files to different programs used was also tedious. 
+</p>
+</div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
