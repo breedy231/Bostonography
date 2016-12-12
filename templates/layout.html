@@ -20,7 +20,7 @@
   #page { font-family: 'Roboto', sans-serif; margin: 1em auto; width: 35em; border: 2px solid #ccc;
                   padding: 0.5em; background: white;  }
   #map { position:absolute; top:5%; bottom:0; width:100%; height:500px; }
-  #entry { position:absolute; top:80%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
+  #entry { position:absolute; top:66%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
 </style>
 
 <nav class="navbar navbar-default">
@@ -49,7 +49,23 @@
 
 
 <div id='entry'>
-  <p> This is some text</p>
+  <h1> Boston: Good Eats </h1>
+  <p> Every city has a food culture. New York, London, Paris, Rome and cities around the world are blazing trails in terms of a vibrant food culture that drives the social life of their cities. People go out ot eat with their friends, get a sense of the restaurants they do and don't like, and more often than not post that information on some form of social media. These people also expect to be eating in an establishment that has high quality food saftey and cleanliness standards, often regulated by the city it's located in. Restaurants in a city can be spread out and varied, with certain spots in the city having a vibrant food scene all within a couple blocks, while other sections of the city are certain food deserts. The same can be said of the price of restaurants in a city, with certain parts of the city being clustered with expensive places to eat while other sections of the city offer cheaper faire. <br>
+
+  Where does Boston fit into all of this? How is Boston growing in terms of its food culture, what does it have to offer, and how is the public receiving it? These are some of the questions we attempted to ask in this project for our Bostonography class at Northeastern University. Getting data from The Boston Globe on the restaurant health grades issued by the city of Boston, we attempted to answer a few questions. 
+  </p>
+  <ul>
+    <li> Does the sentiment of what people post on social media corrleate in any way with a restaurant's health grade? If a restaurant has a bad grade, does that necessarily imply a bad experience? Or, conversely, does a good grade imply a good experience?
+    </li>
+    <li> Is there any relation between the average menu price of a restaurant to its health grade? Are the more expensive restaurants guarenteed a good rating, or is there no corrleation at all between these two?</li>
+    <li> If a restaurant is in a certain location in the city does that affect its health grade? By being closer to City Hall, does that mean a restaurant is guarenteed to be cleaner?</li>
+  </ul>
+
+  <p> These are the questions we hoped to answer in our analysis, on the following pages corresponding to our names. We hope that this website will answer some questions that residents in Boston may have been having about their culinary experience, and illustrate what is happening in the city today. We would appreciate any and all input based on our project <br>
+
+  <h2> The Technical Side
+  </h2>
+  The backend of the website was built on the Flask framework, which utilizes Python as its base language. The front-end was built using HTML5, CSS, and Javascript, utilizing the Bootstrap framework for styling. The interactive map was built using Leaflet.js with a custom Mapbox style, along with custom markers from Leaflet-Awesome-Markers and icons from Font-Awesome. </p>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

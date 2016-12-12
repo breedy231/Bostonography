@@ -14,6 +14,7 @@
 <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
 <link rel="stylesheet" href="/static/css/leaflet.awesome-markers.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
     <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/leaflet.awesome-markers.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha384-C0X5qw1DlkeV0RDunhmi4cUBUkPDTvUqzElcNWm1NI2T4k8tKMZ+wRPQOhZfSJ9N" crossorigin="anonymous">
@@ -22,7 +23,7 @@
   h1 { font-family: 'Roboto', sans-serif; }
   body { margin:0; padding:0; }
   #map { position:absolute; top:5%; bottom:0; width:100%; height:500px; }
-  #text { position: absolute; top:80%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
+  #text { position: absolute; top:70%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
 </style>
 </head>
 <body>
@@ -52,7 +53,20 @@
 
 <div id='map'></div>
 
-<div id='text'> Lorem isum</div>
+<div id='text'> 
+<h1> Social Sentiment and Health Grades</h1>
+<h2> The Approach </h2>
+<p> I approached this project with one thing at the forefront of my mind: I wanted to see what the city of Boston was saying. I wanted to know how people are interacting with the city and the things that inhabit it, and the perfect thing to approach with this mindset was restaurants. With social media, smartphones, and people who take pictures of their food before they eat it, I thought that it would be really interesting to see what kinds of things people were putting out online. The social network I picked to gather my data for the social side was Foursquare, as they have a database of nearly every restaurant in Boston. To correlate this with restaurant grades, I used a spreadsheet put together by Doug, who scraped the restaurant grade data from The Boston Globe website. </p>
+<h2> The Processing</h2>
+<p> To get everything I needed for my data, I had to do a bit of Python scripting. I needed to add geocoded location data in the form of exact latitude and longitude to each restaurant in the spreadsheet, along with the tips gathered from Foursquare and what their average polarity sentiment was. To do all of this, I used open-source Python modules found on Github for the Foursquare API, the Google Maps API, and the Textblob module. Running through the spreadsheet a couple times I got the data in the format I needed, and I went to putting it into visual form</p>
+<h2> The Map</h2>
+<p> The map on the front page of the website and the top of this page is my labour of love for this project. It contains every restaurant in Boston, separated by its respective health grade, which can be toggled in the top right corner of the map. For example, if you toggle to the "Grade B->A" selection of markers, you can see all of the restaurants that received a "B" grade before obtaining an "A" grade. Each subset of markers is then color-coded based on its social sentiment. A green marker with a smiley-face means the restaurant had a social sentiment polarity of above 0.1, which was the average polarity. An orange marker with a meh face means that there were no tips obtained from the Foursquare API, so no social sentiment was calculated. A red marker means that the social sentiment was below 0.1, meaning it had a mostly negative sentiment. Each marker can also be clicked on to see the granular data for yourself, consisting of Name, Address, Grades, Tips, and Sentiment. </p>
+<h2> Anomalies </h2>
+<p> There were a few anomalies in putting this map all together, and that's not to say the hours spend debugging and getting deep into debug logs and Stack Overflow answers. One anomalie I found with this dataset was with fast-food restaurants, the main culprit of course being Dunkin Donuts, because this is Boston. These can be seen on the map by the purple markers with coffee cup icons. These represented a decent chunk of the restaurants in Boston, adding more orange or red markers to the map just by being another fast-food location. This is because the Foursquare API searches by restaurant name, so one Dunkin Donut's tips populated for every Dunkin Donut in our dataset, which amounted to a little under 100 locations. The same can be said of other fast food locations like Au Bon Pain, McDonald's, Domino's Pizza, and others, many of which are colored orange in the marker set because there are no unique tips for the locations. </p>
+<h2> Conclusions </h2>
+<p> By looking at the map, the results are by and large varied, which is the conclusion that my partners and I came to. Just by virtue of having an "A" grade does not mean that a majority of people liked the restaurant itself; the same can be said for a restaurant with a "C" rating, as there are a few anomalies that have a high social sentiment but only had a "C" rating. This could be due to the fact that tips posted on Foursquare are somewhat biased, beacuse it is more likely for a person to post about a good experience at a restaurant than a negative one. This mismatch of social sentiment and health grades could also be blamed upon the sentiment analysis provided from the TextBlob module, as some restaurants that are marked with red markers don't necessarily match up when you look at the tips more granuarily. Overall, I can say that there is some location when looking at the overall map of Boston in terms of its restaurants. The majority of restauarants in Boston are located in and around the Commons, Newbury Street, and the North End, and the majority of these locations have positive sentiment and health grades. However, on the outskirts of the city you can see more clustering of orange and red restaurants, indicating both negative social sentiment and more fast-food locations. It could be said that the closer to the cosmopolitan areas of the city, with nightlife and activity, the better the restaurant, compared to the outskirts of the city that are mostly residential.  </p>
+</div>
+
 
 
 
