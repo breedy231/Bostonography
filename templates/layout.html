@@ -15,12 +15,14 @@
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha384-C0X5qw1DlkeV0RDunhmi4cUBUkPDTvUqzElcNWm1NI2T4k8tKMZ+wRPQOhZfSJ9N" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/static/css/bootstrap-social.css">
 <style>
   h1 { font-family: 'Roboto', sans-serif; }
   #page { font-family: 'Roboto', sans-serif; margin: 1em auto; width: 35em; border: 2px solid #ccc;
                   padding: 0.5em; background: white;  }
   #map { position:absolute; top:5%; bottom:0; width:100%; height:500px; }
   #entry { position:absolute; top:66%; bottom:0; width: 100%; font-family: 'Roboto', sans-serif;}
+  #git { position: absolute; top:120%; width:15%; }
 </style>
 
 <nav class="navbar navbar-default">
@@ -50,6 +52,7 @@
 
 <div id='entry'>
   <h1> Boston: Good Eats </h1>
+  <h2> Alejandro Serrano, Doug Mawrey, Brendan Reed</h2>
   <p> Every city has a food culture. New York, London, Paris, Rome and cities around the world are blazing trails in terms of a vibrant food culture that drives the social life of their cities. People go out ot eat with their friends, get a sense of the restaurants they do and don't like, and more often than not post that information on some form of social media. These people also expect to be eating in an establishment that has high quality food saftey and cleanliness standards, often regulated by the city it's located in. Restaurants in a city can be spread out and varied, with certain spots in the city having a vibrant food scene all within a couple blocks, while other sections of the city are certain food deserts. The same can be said of the price of restaurants in a city, with certain parts of the city being clustered with expensive places to eat while other sections of the city offer cheaper faire. <br>
 
   Where does Boston fit into all of this? How is Boston growing in terms of its food culture, what does it have to offer, and how is the public receiving it? These are some of the questions we attempted to ask in this project for our Bostonography class at Northeastern University. Getting data from The Boston Globe on the restaurant health grades issued by the city of Boston, we attempted to answer a few questions. 
@@ -65,8 +68,11 @@
 
   <h2> The Technical Side
   </h2>
-  The backend of the website was built on the Flask framework, which utilizes Python as its base language. The front-end was built using HTML5, CSS, and Javascript, utilizing the Bootstrap framework for styling. The interactive map was built using Leaflet.js with a custom Mapbox style, along with custom markers from Leaflet-Awesome-Markers and icons from Font-Awesome. </p>
+  The backend of the website was built on the Flask framework, which utilizes Python as its base language. The front-end was built using HTML5, CSS, and Javascript, utilizing the Bootstrap framework for styling. The interactive map was built using Leaflet.js with a custom Mapbox style, along with custom markers from Leaflet-Awesome-Markers and icons from Font-Awesome. This can all be played around with in the map, which can toggle the restaurants shown based on grade by clicking the top right button on the map. All of this code is on my Github at breedy231 for you to view. </p>
 </div>
+<a id ='git' class="btn btn-block btn-social btn-github" href="https://github.com/breedy231/Bostonography">
+    <span class="fa fa-github"></span> breedy231 on Github 
+</a>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
